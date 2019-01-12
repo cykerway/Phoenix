@@ -131,8 +131,8 @@ def configure(conf):
         _copyEnvGroup(conf.env, '_WX', '_WXGL')
         conf.env.LIB_WXGL += cfg.makeLibName('gl')
 
-        _copyEnvGroup(conf.env, '_WX', '_WXWEBVIEW')
-        conf.env.LIB_WXWEBVIEW += cfg.makeLibName('webview')
+#        _copyEnvGroup(conf.env, '_WX', '_WXWEBVIEW')
+#        conf.env.LIB_WXWEBVIEW += cfg.makeLibName('webview')
 
         _copyEnvGroup(conf.env, '_WX', '_WXXML')
         conf.env.LIB_WXXML += cfg.makeLibName('xml', isMSWBase=True)
@@ -221,10 +221,10 @@ def configure(conf):
                        uselib_store='WXGL', mandatory=True,
                        msg='Finding libs for WXGL')
 
-        conf.check_cfg(path=conf.options.wx_config, package='',
-                       args='--cxxflags --libs webview,core,net' + rpath,
-                       uselib_store='WXWEBVIEW', mandatory=True,
-                       msg='Finding libs for WXWEBVIEW')
+#        conf.check_cfg(path=conf.options.wx_config, package='',
+#                       args='--cxxflags --libs webview,core,net' + rpath,
+#                       uselib_store='WXWEBVIEW', mandatory=True,
+#                       msg='Finding libs for WXWEBVIEW')
 
         if isDarwin:
             conf.check_cfg(path=conf.options.wx_config, package='',
@@ -574,7 +574,7 @@ def build(bld):
     makeETGRule(bld, 'etg/_stc.py',        '_stc',       'WXSTC')
     makeETGRule(bld, 'etg/_html.py',       '_html',      'WXHTML')
     makeETGRule(bld, 'etg/_glcanvas.py',   '_glcanvas',  'WXGL')
-    makeETGRule(bld, 'etg/_html2.py',      '_html2',     'WXWEBVIEW')
+#    makeETGRule(bld, 'etg/_html2.py',      '_html2',     'WXWEBVIEW')
     makeETGRule(bld, 'etg/_xml.py',        '_xml',       'WXXML')
     makeETGRule(bld, 'etg/_xrc.py',        '_xrc',       'WXXRC')
     makeETGRule(bld, 'etg/_richtext.py',   '_richtext',  'WXHTML WXRICHTEXT')
